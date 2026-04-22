@@ -24,7 +24,9 @@ export function MealCard({ name, price, id, image, description }) {
         <div className="flex-1 gap-5 flex flex-col items-center justify-between text-center rounded-bl-md rounded-br-md p-5 border-t border-t-amber-500 text-mist-100 shadow-sm shadow-zinc-900">
           <div className="m-4">
             <h2 className="text-xl text-amber-400 font-bold mb-3">{name}</h2>
-            <h3 className="text-md bg-zinc-800 p-2 w-30 m-auto rounded-sm">R$ {price}</h3>
+            <h3 className="text-md bg-zinc-800 p-2 w-30 m-auto rounded-sm">
+              R$ {price}
+            </h3>
             <p className="mt-7 text-xs">{description}</p>
           </div>
 

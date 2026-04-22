@@ -22,6 +22,7 @@ export function Meals() {
           id={id}
           image={image}
           description={description}
+          key={id}
         />
       ))}
     </section>
