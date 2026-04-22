@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
+import { MealsOnCartContext } from "./context/MealsOnCart";
 
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
+  const {setMealListOnCart} = useContext(MealsOnCartContext)
 
-  useEffect(() => {
-    async function fetchingMeals() {
-      const data = await getMeals();
-      setMeals(data);
-    }
-    fetchingMeals();
-  }, []);
+  function addMealOnCart() {
+    setMealListOnCart((prevMeals) => ([...prevMeals, {
+      id: id, 
+      price: price,
+      image: image,
+      name: name
+    }]))
+  }
 
   return (
     <div className="h-full">
@@ -30,7 +33,7 @@ export function MealCard({ name, price, id, image, description }) {
             <p className="mt-7 text-xs">{description}</p>
           </div>
 
-          <button className="mt-auto bg-green-400 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm">
+          <button onClick={addMealOnCart} className="mt-auto bg-green-400 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm">
             Add to cart
           </button>
         </div>

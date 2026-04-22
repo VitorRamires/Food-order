@@ -1,11 +1,14 @@
+import { MealsOnCartProvider } from "./components/context/MealsOnCart";
 import { Header } from "./components/Header";
 import { Meals } from "./components/Meals";
 
 function App() {
   return (
     <>
-      <Header />
-      <Meals />
+      <MealsOnCartProvider>
+        <Header />
+        <Meals />
+      </MealsOnCartProvider>
     </>
   );
 }
