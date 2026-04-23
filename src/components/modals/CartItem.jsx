@@ -1,8 +1,0 @@
-export function CartItem() {
-  return (
-  <> 
-    
-  
-  </>
-  )
-}

@@ -4,15 +4,11 @@ import { MealsOnCartContext } from "./context/MealsOnCart";
 
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
-  const {setMealListOnCart} = useContext(MealsOnCartContext)
+  const { addToCart } = useContext(MealsOnCartContext);
 
-  function addMealOnCart() {
-    setMealListOnCart((prevMeals) => ([...prevMeals, {
-      id: id, 
-      price: price,
-      image: image,
-      name: name
-    }]))
+  function handleAddCart() {
+    const mealData = { id, price, image, name };
+    addToCart(mealData);
   }
 
   return (
@@ -28,12 +24,15 @@ export function MealCard({ name, price, id, image, description }) {
           <div className="m-4">
             <h2 className="text-xl text-amber-400 font-bold mb-3">{name}</h2>
             <h3 className="text-md bg-zinc-800 p-2 w-30 m-auto rounded-sm">
-              R$ {price}
+              $ {price}
             </h3>
             <p className="mt-7 text-xs">{description}</p>
           </div>
 
-          <button onClick={addMealOnCart} className="mt-auto bg-green-400 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm">
+          <button
+            onClick={handleAddCart}
+            className="mt-auto bg-green-400 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm"
+          >
             Add to cart
           </button>
         </div>
