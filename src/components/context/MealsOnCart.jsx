@@ -6,6 +6,19 @@ export function MealsOnCartProvider({ children }) {
   const [mealListOnCart, setMealListOnCart] = useState([]);
   const [mealIsAdd, setMealIsAdd] = useState(false);
 
+  function updateQuantity  (id, actionHandle) {
+    setMealListOnCart((prevMeals) => {
+      return prevMeals.map((meal) => {
+        if(meal.id === id) {
+          const newQuantity = Math.max(1, meal.quantity + actionHandle);
+          return {...meal, quantity: newQuantity}
+        }
+        return meal
+      })
+    })
+  }
+
+
   function addToCart(meal) {
     setMealListOnCart((prevMeals) => {
       const mealExists = prevMeals.find((item) => {
@@ -20,9 +33,11 @@ export function MealsOnCartProvider({ children }) {
     });
   }
 
+
+
   return (
     <MealsOnCartContext.Provider
-      value={{ mealListOnCart, mealIsAdd, setMealListOnCart, addToCart }}
+      value={{ mealListOnCart, mealIsAdd, setMealListOnCart, addToCart, updateQuantity  }}
     >
       {children}
     </MealsOnCartContext.Provider>
