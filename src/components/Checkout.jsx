@@ -1,33 +1,32 @@
+import { useContext } from "react";
+import { Input } from "./Input";
+import { MealsOnCartContext } from "./context/MealsOnCart";
+
 export function CheckoutForm() {
+
+  const {mealListOnCart} = useContext(MealsOnCartContext)
+
+  function handleSubmit () {
+    console.log(mealListOnCart)
+  }
+
   return (
     <>
-      <div className="checkout">
-        <form action>
-          <div className="form-name">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" />
-          </div>
+      <div className="checkout w-120">
+        <form className="p-5">
+          <Input width={"w-105"}  name={"Full name"} id={"name"} type={"text"} />
+          <Input width={"w-105"} name={"E-mail address"} id={"email"} type={"email"} />
+          <Input width={"w-105"} name={"Street"} id={"street"} type={"text"} />
 
-          <div className="form-email">
-            <label htmlFor="email">Email</label>
-            <input type="text" id="email" />
-          </div>
-
-          <div className="form-street">
-            <label htmlFor="street">Street</label>
-            <input type="text" id="street" />
-          </div>
-
-          <div className="form-postalCode">
-            <label htmlFor="postalCode">Postal Code</label>
-            <input type="text" id="postalCode" />
-          </div>
-
-          <div className="form-city">
-            <label htmlFor="city">City</label>
-            <input type="text" id="city" />
+          <div className="flex flex-row gap-5">
+            <Input width={"w-50"} name={"PostCard"} id={"postcard"} type={"number"} />
+            <Input width={"w-50"} name={"City"} id={"city"} type={"text"} />
           </div>
         </form>
+
+        <button onClick={handleSubmit} className="w-full text-zinc-50 bg-amber-500  p-5 cursor-pointer hover:bg-amber-600 transition">
+          Submit Order
+        </button>
       </div>
     </>
   );

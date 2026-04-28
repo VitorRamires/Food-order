@@ -6,12 +6,12 @@ import { Meals } from "./components/Meals";
 function App() {
   return (
     <>
-      <MealsOnCartProvider>
-        <CheckoutMarkedProvider>
+      <CheckoutMarkedProvider>
+        <MealsOnCartProvider>
           <Header />
           <Meals />
-        </CheckoutMarkedProvider>
-      </MealsOnCartProvider>
+        </MealsOnCartProvider>
+      </CheckoutMarkedProvider>
     </>
   );
 }
