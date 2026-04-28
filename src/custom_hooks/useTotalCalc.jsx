@@ -1,5 +1,11 @@
 import { MealsOnCartContext } from "../components/context/MealsOnCart";
-import { useContext, useReducer, useEffect } from "react";
+import {
+  useContext,
+  useReducer,
+  useEffect,
+  createContext,
+  useState,
+} from "react";
 
 export function useTotalCalc(itemList) {
   function reducer(state, action) {
@@ -16,7 +22,7 @@ export function useTotalCalc(itemList) {
         subtotal: newSubtotal,
       };
     }
-    
+
     return state;
   }
 
