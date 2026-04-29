@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealsOnCartContext } from "./context/MealsOnCart";
-import { AddToCartMessage } from "./modals/ModalAddToCart";
+import { AddToCartMessage } from "./modals/AddToCartMsg";
 import { AppearMessageContext } from "./context/AppearMessage";
 
 export function MealCard({ name, price, id, image, description }) {
@@ -12,7 +12,7 @@ export function MealCard({ name, price, id, image, description }) {
   function handleAddCart() {
     const mealData = { id, price, image, name };
     addToCart(mealData);
-    
+
     addMealMessage();
   }
 
@@ -36,7 +36,7 @@ export function MealCard({ name, price, id, image, description }) {
 
           <button
             onClick={handleAddCart}
-            className="mt-auto bg-green-400 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm"
+            className="mt-auto bg-green-600 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm"
           >
             Add to cart
           </button>

@@ -1,6 +1,6 @@
 export function Input({label, id, type, width}) {
   return (
-    <div className="form-item my-5 text-zinc-50">
+    <div className="form-item text-zinc-50 w-full">
       <label className="block text-zinc-50 mb-1" htmlFor={id}>
         {label}
       </label>

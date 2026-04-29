@@ -6,7 +6,7 @@ export function MealsOnCartProvider({ children }) {
   const [mealListOnCart, setMealListOnCart] = useState([]);
   const [mealIsAdd, setMealIsAdd] = useState(false);
 
-  function updateQuantity  (id, actionHandle) {
+  function updateQuantity (id, actionHandle) {
     setMealListOnCart((prevMeals) => {
       return prevMeals.map((meal) => {
         if(meal.id === id) {

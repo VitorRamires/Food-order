@@ -8,8 +8,8 @@ export function ModalCart({ onClose }) {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/90 z-50 overflow-auto flex items-center justify-center">
-        <div className="modal max-h-200 overflow-auto bg-zinc-900 w-fit relative rounded-xl">
+      <div className="fixed inset-0 bg-black/90 z-50 overflow-auto flex items-center justify-center p-2">
+        <div className="modal max-h-200 bg-zinc-900 sm:w-125 w-lg relative rounded-xl custom-scrollbar overflow-y-auto overflow-x-hidden">
           <div
             className="close-btn cursor-pointer ml-auto w-fit"
             onClick={onClose}

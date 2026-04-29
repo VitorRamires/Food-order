@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @keyframes slideInRight {
   from {
     transform: translateX(100%);
@@ -9,5 +8,24 @@
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #F59E0B;
   }
 }

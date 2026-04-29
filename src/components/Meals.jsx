@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealCard } from "./MealCard";
 import { createPortal } from "react-dom";
-import { AddToCartMessage } from "./modals/ModalAddToCart";
+import { AddToCartMessage } from "./modals/AddToCartMsg";
 
 export function Meals() {
   const [meals, setMeals] = useState([]);
@@ -16,7 +16,7 @@ export function Meals() {
   }, []);
 
   return (
-    <section className="grid grid-cols-3 gap-4 w-7xl max-95 mx-auto my-10">
+    <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 xl:w-6xl p-4 max-95 mx-auto my-10">
       {meals.map(({ name, price, id, image, description }) => (
         <MealCard
           name={name}

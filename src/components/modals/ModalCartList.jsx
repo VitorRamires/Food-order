@@ -33,17 +33,20 @@ export function CartList() {
               );
             })}
           </ul>
-          <p className="p-5 text-xl text-amber-500 font-bold">
-            Total: $ {subtotalNumber}
-          </p>
-          <button
-            onClick={() => {
-              setCheckoutClicked(true);
-            }}
-            className=" w-full text-zinc-50 bg-amber-500  p-5 cursor-pointer hover:bg-amber-600 transition"
-          >
-            Checkout
-          </button>
+
+          <div className="sticky bottom-0">
+            <p className="p-5 text-xl text-amber-500 font-bold bg-zinc-800">
+              Total: $ {subtotalNumber}
+            </p>
+            <button
+              onClick={() => {
+                setCheckoutClicked(true);
+              }}
+              className=" w-full text-zinc-50 bg-amber-500  p-5 cursor-pointer hover:bg-amber-600 transition"
+            >
+              Checkout
+            </button>
+          </div>
         </div>
       )}
     </div>

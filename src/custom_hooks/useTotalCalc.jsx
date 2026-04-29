@@ -8,6 +8,7 @@ import {
 } from "react";
 
 export function useTotalCalc(itemList) {
+  
   function reducer(state, action) {
     if (!action) return state;
 
