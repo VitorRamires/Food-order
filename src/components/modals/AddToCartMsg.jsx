@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppearMessageContext } from "../context/AppearMessage";
 
 export function AddToCartMessage() {
-  const { showMsg } = useContext(AppearMessageContext);
+  const { showMsg, message } = useContext(AppearMessageContext);
 
   return (
     <h3
@@ -10,7 +10,7 @@ export function AddToCartMessage() {
         showMsg ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       }`}
     >
-      Meal added to cart!
+      {message}
     </h3>
   );
 }

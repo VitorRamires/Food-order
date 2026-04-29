@@ -4,23 +4,28 @@ export const MealsOnCartContext = createContext();
 
 export function MealsOnCartProvider({ children }) {
   const [mealListOnCart, setMealListOnCart] = useState([]);
-  const [mealIsAdd, setMealIsAdd] = useState(false);
 
-  function updateQuantity (id, actionHandle) {
+  function updateQuantity(id, actionHandle) {
     setMealListOnCart((prevMeals) => {
       return prevMeals.map((meal) => {
-        if(meal.id === id) {
+        if (meal.id === id) {
           const newQuantity = Math.max(1, meal.quantity + actionHandle);
-          return {...meal, quantity: newQuantity}
+          return { ...meal, quantity: newQuantity };
         }
-        return meal
-      })
-    })
+        return meal;
+      });
+    });
   }
 
+  function removeToCart(id) {
+    setMealListOnCart((prevMeals) => {
+      return prevMeals.filter((item) => item.id !== id);
+    });
+  }
 
   function addToCart(meal) {
     setMealListOnCart((prevMeals) => {
+      //possibilidade de custom hook
       const mealExists = prevMeals.find((item) => {
         return item.id === meal.id;
       });
@@ -33,11 +38,15 @@ export function MealsOnCartProvider({ children }) {
     });
   }
 
-
-
   return (
     <MealsOnCartContext.Provider
-      value={{ mealListOnCart, mealIsAdd, setMealListOnCart, addToCart, updateQuantity  }}
+      value={{
+        mealListOnCart,
+        setMealListOnCart,
+        addToCart,
+        updateQuantity,
+        removeToCart,
+      }}
     >
       {children}
     </MealsOnCartContext.Provider>

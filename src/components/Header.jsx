@@ -3,10 +3,13 @@ import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { ModalCart } from "./modals/ModalCart";
 import { CheckoutContext } from "./context/checkoutMarked";
+import cartIcon from "../assets/icons/cart.svg";
+import { MealsOnCartContext } from "./context/MealsOnCart";
 
 export function Header() {
   const [showModal, setShowModal] = useState(false);
   const { setCheckoutClicked } = useContext(CheckoutContext);
+  const { mealListOnCart } = useContext(MealsOnCartContext);
 
   function closeModalHandle() {
     setShowModal(false);
@@ -26,14 +29,23 @@ export function Header() {
         </span>
       </div>
 
-      <button
-        className="cart items-end cursor-pointer text-amber-500 sm:text-base text-sm"
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        My Cart
-      </button>
+      <div className="flex gap-3 items-center justify-center">
+        <img src={cartIcon} alt="cart icon" className="w-5 h-auto" />
+        <button
+          className="cart items-end cursor-pointer text-amber-500 sm:text-base text-sm"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          My Cart
+        </button>
+
+        <div className="bg-zinc-900 border border-amber-500 px-3  rounded-xl font-bold relative">
+          <p className="pb-0.5 text-zinc-50 text-base">
+            {mealListOnCart.length}
+          </p>
+        </div>
+      </div>
 
       {showModal &&
         createPortal(<ModalCart onClose={closeModalHandle} />, document.body)}

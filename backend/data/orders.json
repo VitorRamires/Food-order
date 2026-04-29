@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "items": [
+      {
+        "id": "m3",
+        "price": "7.99",
+        "image": "images/caesar-salad.jpg",
+        "name": "Caesar Salad",
+        "quantity": 1
+      },
+      {
+        "id": "m6",
+        "price": "10.99",
+        "image": "images/grilled-chicken-sandwich.jpg",
+        "name": "Grilled Chicken Sandwich",
+        "quantity": 1
+      }
+    ],
+    "customer": {
+      "name": "Vitor Martins Ramires",
+      "email": "vitor@hotmail.com",
+      "street": "Rua do Vitor",
+      "postal-code": "98127321",
+      "city": "Cidade do Vitor"
+    },
+    "id": "588.3682840594304"
+  }
+]

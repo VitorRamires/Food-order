@@ -6,14 +6,25 @@ import { AppearMessageContext } from "./context/AppearMessage";
 
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
-  const { addToCart } = useContext(MealsOnCartContext);
+  const [mealsExist, setMealsExist] = useState(false);
+
+  const { addToCart, mealListOnCart } = useContext(MealsOnCartContext);
   const { addMealMessage } = useContext(AppearMessageContext);
+
+  useEffect(() => {
+    const verifyMealsExist = mealListOnCart.some((meal) => meal.id === id);
+    setMealsExist(verifyMealsExist);
+  }, [mealListOnCart]);
 
   function handleAddCart() {
     const mealData = { id, price, image, name };
-    addToCart(mealData);
 
-    addMealMessage();
+    if (mealsExist) {
+      addMealMessage("Meal is on cart");
+      return;
+    }
+
+    addToCart(mealData);
   }
 
   return (
@@ -36,7 +47,8 @@ export function MealCard({ name, price, id, image, description }) {
 
           <button
             onClick={handleAddCart}
-            className="mt-auto bg-green-600 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm"
+            disabled={mealsExist ? true : false}
+            className="mt-auto bg-green-600 w-30 p-2 cursor-pointer hover:bg-green-600 hover:text-orange-50 transition hover:-translate-y-1 rounded-sm disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             Add to cart
           </button>
