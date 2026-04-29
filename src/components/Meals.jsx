@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealCard } from "./MealCard";
+import { createPortal } from "react-dom";
+import { AddToCartMessage } from "./modals/ModalAddToCart";
 
 export function Meals() {
   const [meals, setMeals] = useState([]);
@@ -25,6 +27,7 @@ export function Meals() {
           key={id}
         />
       ))}
+      {createPortal(<AddToCartMessage />, document.body)}
     </section>
   );
 }

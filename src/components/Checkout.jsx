@@ -24,8 +24,6 @@ export function CheckoutForm() {
       "postal-code": postalCode,
       city,
     };
-    const errors = [];
-
     const orderData = {
       order: {
         items: mealListOnCart,
@@ -33,12 +31,17 @@ export function CheckoutForm() {
       },
     };
 
-    if (name === "") errors.push("fill the name input");
-    if (email === "") errors.push("fill the title input");
-    if (street === "") errors.push("fill the your opinion text area");
-    if (street === "") errors.push("fill the your opinion text area");
-    if (city === "") errors.push("fill the your opinion text area");
-
+    const fields = [
+      { value: name, message: "Fill the name input" },
+      { value: email, message: "Fill the e-mail input" },
+      { value: street, message: "Fill the street input" },
+      { value: postalCode, message: "Fill the postal-code input" },
+      { value: city, message: "Fill the the city input" },
+    ];
+    const errors = [];
+    fields.forEach(({ value, message }) => {
+      if (value === "") errors.push(message);
+    });
     if (errors.length > 0) return { errors };
 
     await postMeals(orderData);
@@ -83,7 +86,7 @@ export function CheckoutForm() {
           {formState.errors && (
             <ul>
               {formState.errors.map((error) => (
-                <li>{error}</li>
+                <li className="text-red-400 my-3 list-disc list-inside text-sm">{error}</li>
               ))}
             </ul>
           )}

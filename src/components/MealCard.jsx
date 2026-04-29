@@ -1,14 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealsOnCartContext } from "./context/MealsOnCart";
+import { AddToCartMessage } from "./modals/ModalAddToCart";
+import { AppearMessageContext } from "./context/AppearMessage";
 
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
   const { addToCart } = useContext(MealsOnCartContext);
+  const { addMealMessage } = useContext(AppearMessageContext);
 
   function handleAddCart() {
     const mealData = { id, price, image, name };
     addToCart(mealData);
+    
+    addMealMessage();
   }
 
   return (
