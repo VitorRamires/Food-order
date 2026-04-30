@@ -1,8 +1,8 @@
-import { useActionState, useContext } from "react";
+import { useContext } from "react";
 import { Input } from "./Input";
-import { MealsOnCartContext } from "../context/MealsOnCart";
-import { postMeals } from "../../DATA";
-import { SubmitBtn } from "./SubmitBtn";
+import { MealsOnCartContext } from "./context/MealsOnCart";
+import { useActionState } from "react";
+import { postMeals } from "../DATA";
 
 export function CheckoutForm() {
   const { mealListOnCart } = useContext(MealsOnCartContext);
@@ -16,7 +16,6 @@ export function CheckoutForm() {
     const street = formData.get("street");
     const postalCode = formData.get("postalCode");
     const city = formData.get("city");
-    const errors = [];
 
     const customerInfos = {
       name,
@@ -25,7 +24,6 @@ export function CheckoutForm() {
       "postal-code": postalCode,
       city,
     };
-
     const orderData = {
       order: {
         items: mealListOnCart,
@@ -40,14 +38,13 @@ export function CheckoutForm() {
       { value: postalCode, message: "Fill the postal-code input" },
       { value: city, message: "Fill the the city input" },
     ];
-
+    const errors = [];
     fields.forEach(({ value, message }) => {
       if (value === "") errors.push(message);
     });
+    if (errors.length > 0) return { errors };
 
-    if (errors.length > 0)
-      return { errors, inputValue: { name, email, street, postalCode, city } };
-
+    
     await postMeals(orderData);
     return { errors: null };
   }
@@ -62,21 +59,18 @@ export function CheckoutForm() {
               id={"name"}
               type={"text"}
               width={"w-full"}
-              defaultValue={formState.inputValue?.name}
             />
             <Input
               label={"E-mail address"}
               id={"email"}
               type={"email"}
               width={"w-full"}
-              defaultValue={formState.inputValue?.email}
             />
             <Input
               label={"Street"}
               id={"street"}
               type={"text"}
               width={"w-full"}
-              defaultValue={formState.inputValue?.street}
             />
 
             <div className="flex flex-col sm:flex-row gap-5 w-full">
@@ -85,14 +79,12 @@ export function CheckoutForm() {
                 id={"postalCode"}
                 type={"text"}
                 width={"w-full"}
-                defaultValue={formState.inputValue?.postalCode}
               />
               <Input
                 label={"City"}
                 id={"city"}
                 type={"text"}
                 width={"w-full"}
-                defaultValue={formState.inputValue?.city}
               />
             </div>
 
@@ -101,7 +93,7 @@ export function CheckoutForm() {
                 {formState.errors.map((error) => (
                   <li
                     key={error}
-                    className="text-red-400 my-2 list-disc list-inside text-xs sm:text-sm pl-6 border py-2 rounded-sm"
+                    className="text-red-400 my-2 list-disc list-inside text-xs  rounded-sm"
                   >
                     {error}
                   </li>
@@ -110,7 +102,12 @@ export function CheckoutForm() {
             )}
           </div>
 
-          <SubmitBtn />
+          <button
+            className="w-full text-zinc-50 bg-amber-500  p-5 mt-5 cursor-pointer hover:bg-amber-600 transition"
+            type="submit"
+          >
+            Submit Order
+          </button>
         </form>
       </div>
     </>

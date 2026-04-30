@@ -13,9 +13,5 @@ export async function postMeals(orderData) {
     body: JSON.stringify(orderData),
   });
 
-  if (!response.ok) {
-    return;
-  }
-
   const data = await response.json();
 }

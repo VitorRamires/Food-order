@@ -25,7 +25,6 @@ export function MealsOnCartProvider({ children }) {
 
   function addToCart(meal) {
     setMealListOnCart((prevMeals) => {
-      //possibilidade de custom hook
       const mealExists = prevMeals.find((item) => {
         return item.id === meal.id;
       });
