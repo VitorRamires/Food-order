@@ -1,4 +1,4 @@
-export function Input({label, id, type, width}) {
+export function Input({ label, id, type, width, defaultValue }) {
   return (
     <div className="form-item text-zinc-50 w-full">
       <label className="block text-zinc-50 mb-1" htmlFor={id}>
@@ -9,6 +9,7 @@ export function Input({label, id, type, width}) {
         type={type}
         id={id}
         name={id}
+        defaultValue={defaultValue}
       />
     </div>
   );

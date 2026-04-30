@@ -7,18 +7,15 @@ export async function getMeals() {
 }
 
 export async function postMeals(orderData) {
-  try {
-    const response = await fetch(`${URL_BASE}/orders`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(orderData),
-    });
-    const data = await response.json();
+  const response = await fetch(`${URL_BASE}/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(orderData),
+  });
 
-    if (response.status === 201) {
-      return { success: true };
-    }
-  } catch (error) {
-    throw error;
+  if (!response.ok) {
+    return;
   }
+
+  const data = await response.json();
 }
