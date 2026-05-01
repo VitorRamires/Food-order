@@ -1,5 +1,5 @@
 import { AppearMessageProvider } from "./components/context/AppearMessage";
-import { CheckoutMarkedProvider } from "./components/context/checkoutMarked";
+import { CheckoutMarkedProvider } from "./components/context/CheckoutMarked";
 import { MealsOnCartProvider } from "./components/context/MealsOnCart";
 import { Header } from "./components/Header";
 import { Meals } from "./components/Meals";
