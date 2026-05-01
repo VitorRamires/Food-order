@@ -2,7 +2,7 @@ import logo from "../../public/logo.jpg";
 import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { ModalCart } from "./modals/ModalCart";
-import { CheckoutContext } from "./context/checkoutMarked";
+import { CheckoutContext } from "./context/CheckoutMarked";
 import cartIcon from "../assets/icons/cart.svg";
 import { MealsOnCartContext } from "./context/MealsOnCart";
 

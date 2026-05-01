@@ -7,14 +7,14 @@ import { Meals } from "./components/Meals";
 function App() {
   return (
     <>
-      <CheckoutMarkedProvider>
-        <AppearMessageProvider>
+      <AppearMessageProvider>
+        <CheckoutMarkedProvider>
           <MealsOnCartProvider>
             <Header />
             <Meals />
           </MealsOnCartProvider>
-        </AppearMessageProvider>
-      </CheckoutMarkedProvider>
+        </CheckoutMarkedProvider>
+      </AppearMessageProvider>
     </>
   );
 }
