@@ -1,6 +1,6 @@
 import { CheckoutForm } from "../checkout";
 import { CartList } from "./ModalCartList";
-import { CheckoutContext } from "../context/checkoutMarked";
+import { CheckoutContext } from "../context/CheckoutMarked";
 import { useContext } from "react";
 import closeIcon from "../../assets/icons/close.svg";
 

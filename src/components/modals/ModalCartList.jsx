@@ -3,7 +3,7 @@ import { MealsOnCartContext } from "../context/MealsOnCart";
 import { ModalCardItem } from "./ModalCardItem";
 import { useTotalCalc } from "../../custom_hooks/useTotalCalc";
 import { NoMealsFound } from "./NoMeals";
-import { CheckoutContext } from "../context/checkoutMarked";
+import { CheckoutContext } from "../context/CheckoutMarked";
 
 export function CartList() {
   const { mealListOnCart } = useContext(MealsOnCartContext);
