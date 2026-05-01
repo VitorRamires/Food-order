@@ -1,19 +1,17 @@
 import logo from "../../public/logo.jpg";
 import { useContext, useState } from "react";
 import { createPortal } from "react-dom";
-import { ModalCart } from "./modals/ModalCart";
-import { CheckoutContext } from "./context/CheckoutMarked";
+import { Cart } from "./modals/Cart";
 import cartIcon from "../assets/icons/cart.svg";
 import { MealsOnCartContext } from "./context/MealsOnCart";
+import { UserProgressContext } from "./context/UserProgress";
 
 export function Header() {
-  const [showModal, setShowModal] = useState(false);
-  const { setCheckoutClicked } = useContext(CheckoutContext);
   const { mealListOnCart } = useContext(MealsOnCartContext);
+  const userProgressCtx = useContext(UserProgressContext);
 
-  function closeModalHandle() {
-    setShowModal(false);
-    setCheckoutClicked(false);
+  function openCartHandle() {
+    userProgressCtx.showCart();
   }
 
   return (
@@ -32,10 +30,8 @@ export function Header() {
       <div className="flex gap-3 items-center justify-center">
         <img src={cartIcon} alt="cart icon" className="w-5 h-auto" />
         <button
+          onClick={openCartHandle}
           className="cart items-end cursor-pointer text-amber-500 sm:text-base text-sm"
-          onClick={() => {
-            setShowModal(true);
-          }}
         >
           My Cart
         </button>
@@ -46,9 +42,6 @@ export function Header() {
           </p>
         </div>
       </div>
-
-      {showModal &&
-        createPortal(<ModalCart onClose={closeModalHandle} />, document.body)}
     </header>
   );
 }

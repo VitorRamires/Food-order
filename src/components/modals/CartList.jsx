@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { MealsOnCartContext } from "../context/MealsOnCart";
-import { ModalCardItem } from "./ModalCardItem";
+import { CartItem } from "./CartItem";
 import { useTotalCalc } from "../../custom_hooks/useTotalCalc";
 import { NoMealsFound } from "./NoMeals";
-import { CheckoutContext } from "../context/CheckoutMarked";
+import { UserProgressContext } from "../context/UserProgress";
 
 export function CartList() {
   const { mealListOnCart } = useContext(MealsOnCartContext);
@@ -12,7 +12,11 @@ export function CartList() {
   const { subtotal } = useTotalCalc(mealListOnCart);
   const subtotalNumber = +subtotal.toFixed(4);
 
-  const { setCheckoutClicked } = useContext(CheckoutContext);
+  const userProgressCtx = useContext(UserProgressContext);
+
+  function openCheckoutHandle() {
+    userProgressCtx.showCheckout();
+  }
 
   return (
     <div className="cart-list">
@@ -22,7 +26,7 @@ export function CartList() {
           <ul>
             {mealListOnCart.map(({ id, price, image, name, quantity }) => {
               return (
-                <ModalCardItem
+                <CartItem
                   key={id + "modalItem"}
                   id={id}
                   price={price}
@@ -39,9 +43,7 @@ export function CartList() {
               Total: $ {subtotalNumber}
             </p>
             <button
-              onClick={() => {
-                setCheckoutClicked(true);
-              }}
+              onClick={openCheckoutHandle}
               className=" w-full text-zinc-50 bg-amber-500  p-5 cursor-pointer hover:bg-amber-600 transition"
             >
               Checkout

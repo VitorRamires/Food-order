@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { URL_BASE } from "../../DATA";
 import { MealsOnCartContext } from "../context/MealsOnCart";
-import trash from "../../assets/icons/trash.svg"
+import trash from "../../assets/icons/trash.svg";
 
-export function ModalCardItem({ id, price, image, name, quantity }) {
+export function CartItem({ id, price, image, name, quantity }) {
   const { updateQuantity, removeToCart } = useContext(MealsOnCartContext);
 
   function handleDecrement() {
@@ -21,7 +21,6 @@ export function ModalCardItem({ id, price, image, name, quantity }) {
   return (
     <li className=" py-7 px-5 border-b border-zinc-800 w-full">
       <div className="cart-item flex flex-col sm:flex-row sm:gap-5 gap-10 sm:justify-between sm:items-center items-center justify-center">
-
         <div className="flex flex-col sm:flex-row gap-4 sm:w-auto w-fit gap-10 items-center justify-center">
           <img
             className="sm:w-30 w-50 h-auto rounded-xl"
@@ -53,8 +52,12 @@ export function ModalCardItem({ id, price, image, name, quantity }) {
           </div>
         </div>
 
-
-        <img onClick={removeMeal} src={trash} alt="remove meal icon" className="w-5 h-auto cursor-pointer" />
+        <img
+          onClick={removeMeal}
+          src={trash}
+          alt="remove meal icon"
+          className="w-5 h-auto cursor-pointer"
+        />
       </div>
     </li>
   );

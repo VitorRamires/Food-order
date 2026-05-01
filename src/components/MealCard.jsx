@@ -1,15 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealsOnCartContext } from "./context/MealsOnCart";
-import { AddToCartMessage } from "./modals/AddToCartMsg";
-import { AppearMessageContext } from "./context/AppearMessage";
+
 
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
   const [mealsExist, setMealsExist] = useState(false);
 
   const { addToCart, mealListOnCart } = useContext(MealsOnCartContext);
-  const { addMealMessage } = useContext(AppearMessageContext);
 
   useEffect(() => {
     const verifyMealsExist = mealListOnCart.some((meal) => meal.id === id);
