@@ -1,4 +1,4 @@
-import { CheckoutForm } from "../checkout";
+import { CheckoutForm } from "../Checkout";
 import { CartList } from "./ModalCartList";
 import { CheckoutContext } from "../context/CheckoutMarked";
 import { useContext } from "react";
