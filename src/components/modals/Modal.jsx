@@ -13,7 +13,7 @@ export function Modal({ children, className = "", open }) {
   }, [open]);
 
   return createPortal(
-    <dialog className={`modal ${className}`} ref={modalRef}>
+    <dialog className={`modal ${className} `} ref={modalRef}>
       {children}
     </dialog>,
     document.getElementById("modal"),

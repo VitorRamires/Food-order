@@ -22,13 +22,13 @@ export function OrderStatus() {
   return (
     <div className="fixed bottom-5 right-5 z-50 w-fit">
       <p
-        className="text-2xl text-bold mb-3 ml-auto relative w-fit text-zinc-50 bg-amber-500 px-3 py-1 rounded-full top-6 left-2 shadow-sm"
+        className="text-xl text-bold mb-3 ml-auto relative w-fit text-zinc-50 bg-zinc-700 px-3 py-1 rounded-full top-6 left-2 shadow-sm"
         onClick={handleCloseModal}
       >
         X
       </p>
-      <div className="order-message text-zinc-50 bg-amber-700 p-5 rounded-sm">
-        <h2 className="text-2xl">Your order was successful!</h2>
+      <div className="order-message text-zinc-50 bg-green-800 p-5 rounded-sm">
+        <h2 className="text-md">Your order was successful!</h2>
         <p className="text-sm">Now just wait for your order to arrive!</p>
       </div>
     </div>

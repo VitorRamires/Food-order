@@ -19,7 +19,7 @@ export function CartList() {
   }
 
   return (
-    <div className="cart-list">
+    <div className="cart-list ">
       {listIsEmpty && <NoMealsFound />}
       {!listIsEmpty && (
         <div className="cart-list">

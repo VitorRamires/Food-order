@@ -14,7 +14,7 @@ export function Cart() {
 
   return (
     <Modal open={userProgressCtx.userProgress === "cart"}>
-      <div className="fixed inset-0 bg-black/90 z-50 overflow-auto flex items-center justify-center p-2">
+      <div className="fixed inset-0 bg-black/90 z-50 overflow-auto flex items-center justify-center p-2 ">
         <div className="max-h-200 bg-zinc-900 sm:w-125 w-lg relative rounded-xl custom-scrollbar overflow-y-auto overflow-x-hidden">
           <div className="close-btn cursor-pointer ml-auto w-fit">
             <img
