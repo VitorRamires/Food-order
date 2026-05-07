@@ -1,4 +1,4 @@
-export const URL_BASE = "http://localhost:3000";
+export const URL_BASE = "https://food-order-1-y273.onrender.com";
 
 export async function getMeals() {
   try {
