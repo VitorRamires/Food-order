@@ -1,4 +1,4 @@
-<h2>🍔 Food Order</h2>
+<h2>🍔 Forkit Order</h2>
 <h3>🎯 Objetivo</h3>
 Este projeto foi criado com o objetivo de simular um fluxo completo de compra e venda de comidas, abrangendo desde a listagem de produtos até a finalização do pedido — com controle de estado global, tratamento de erros, cálculos dinâmicos e integração com um backend local.
 <br />
