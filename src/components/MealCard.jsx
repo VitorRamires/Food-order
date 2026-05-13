@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { getMeals, URL_BASE } from "../DATA";
 import { MealsOnCartContext } from "./context/MealsOnCart";
 
 export function MealCard({ name, price, id, image, description }) {
