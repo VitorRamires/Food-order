@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { getMeals, URL_BASE } from "../DATA";
 import { MealsOnCartContext } from "./context/MealsOnCart";
 
-
 export function MealCard({ name, price, id, image, description }) {
   const [meals, setMeals] = useState([]);
   const [mealsExist, setMealsExist] = useState(false);
@@ -16,12 +15,6 @@ export function MealCard({ name, price, id, image, description }) {
 
   function handleAddCart() {
     const mealData = { id, price, image, name };
-
-    if (mealsExist) {
-      addMealMessage("Meal is on cart");
-      return;
-    }
-
     addToCart(mealData);
   }
 

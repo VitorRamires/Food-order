@@ -39,8 +39,6 @@ export function Checkout() {
     return { errors: null };
   }
 
-  console.log(userProgressCtx);
-
   return (
     <Modal open={userProgressCtx.userProgress === "checkout"}>
       <div className="checkout fixed inset-0 bg-black/90 z-50 overflow-auto flex items-center justify-center p-2">

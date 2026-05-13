@@ -1,6 +1,5 @@
 import logo from "../../public/logo.jpg";
 import { useContext, useState } from "react";
-import { createPortal } from "react-dom";
 import { Cart } from "./modals/Cart";
 import cartIcon from "../assets/icons/cart.svg";
 import { MealsOnCartContext } from "./context/MealsOnCart";

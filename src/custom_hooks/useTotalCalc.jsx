@@ -1,14 +1,6 @@
-import { MealsOnCartContext } from "../components/context/MealsOnCart";
-import {
-  useContext,
-  useReducer,
-  useEffect,
-  createContext,
-  useState,
-} from "react";
+import { useReducer, useEffect } from "react";
 
 export function useTotalCalc(itemList) {
-  
   function reducer(state, action) {
     if (!action) return state;
 

@@ -9,17 +9,15 @@ import { Cart } from "./components/modals/Cart";
 function App() {
   return (
     <>
-      <>
-        <UserProgressProvider>
-          <MealsOnCartProvider>
-            <Header />
-            <Meals />
-            <Cart />
-            <Checkout />
-            <OrderStatus />
-          </MealsOnCartProvider>
-        </UserProgressProvider>
-      </>
+      <UserProgressProvider>
+        <MealsOnCartProvider>
+          <Header />
+          <Meals />
+          <Cart />
+          <Checkout />
+          <OrderStatus />
+        </MealsOnCartProvider>
+      </UserProgressProvider>
     </>
   );
 }
