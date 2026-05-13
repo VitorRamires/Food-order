@@ -1,4 +1,3 @@
-import { Checkout } from "../form/Checkout";
 import { CartList } from "./CartList";
 import { useContext } from "react";
 import closeIcon from "../../assets/icons/close.svg";

@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { MealsOnCartContext } from "./context/MealsOnCart";
+import { URL_BASE } from "../DATA";
 
 export function MealCard({ name, price, id, image, description }) {
-  const [meals, setMeals] = useState([]);
   const [mealsExist, setMealsExist] = useState(false);
 
   const { addToCart, mealListOnCart } = useContext(MealsOnCartContext);
@@ -10,7 +10,7 @@ export function MealCard({ name, price, id, image, description }) {
   useEffect(() => {
     const verifyMealsExist = mealListOnCart.some((meal) => meal.id === id);
     setMealsExist(verifyMealsExist);
-  }, [mealListOnCart]);
+  }, [mealListOnCart, id]);
 
   function handleAddCart() {
     const mealData = { id, price, image, name };

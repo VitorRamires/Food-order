@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { URL_BASE } from "../../DATA";
 import { MealsOnCartContext } from "../context/MealsOnCart";
 import trash from "../../assets/icons/trash.svg";
